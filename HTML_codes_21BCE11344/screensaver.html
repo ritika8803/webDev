@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .ball{
+            background-color: black;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            animation: ball 9s infinite linear;
+            text-align: center;
+        }
+        @keyframes ball{
+            0%   {background-color: red; left: 600px; top: 0px; transform: rotateX(180deg);}
+           25%  {background-color: yellow; left: 0px; top: 200px; transform: rotateY(180deg);}
+           50%  {background-color: blue;left: 600px; top: 450px;transform: rotateZ(180deg);}
+           75% {background-color: green;left: 1130px; top: 200px;transform: rotateX(180deg);}
+           100%  {background-color: red;left: 600px; top: 0px;transform: rotateY(180deg);}
+        } 
+        p{
+            color: white;
+        } 
+    </style>
+</head>
+<body>
+    <div class="ball"><p> ritika</p> </div>
+</body>
+</html>

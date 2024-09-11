@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wall Clock</title>
+    <style>
+body{
+    background-color:#FFA559;
+    text-align: center;
+    padding : 60px;
+}
+.clockContainer{
+    position: relative;
+    margin: auto;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    background-color:#454545 ;
+}
+#hour,#minute,#second,.smallCircle {
+    position: absolute;
+    background: black;
+    border-radius: 10px;
+    transform-origin: bottom;
+}
+#hour {
+    width: 10px;
+    height: 15%;
+    top: 34%;
+    left: 48.85%;
+    opacity: 0.8;
+    animation: rotate 216000s infinite linear;
+}
+#minute {
+    width: 6px;
+    height: 25%;
+    top: 24%;
+    left: 49.3%;
+    opacity: 0.8;
+    animation: rotate 3600s infinite linear;
+}
+#second {
+    width: 2px;
+    height: 30%;
+    top: 19%;
+    left: 49.8%;
+    animation: rotate 60s infinite linear;
+}
+.smallCircle{
+    background-color: black;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    top: 47.9%;
+    left: 48.2%;
+}
+img{
+    width: 370px;
+    height: 370px;
+    border-radius: 50%;
+    margin-top: 14.7px;
+}
+
+@keyframes rotate {
+to {
+transform: rotate(1turn);
+ }
+}
+    </style>
+</head>
+<body>
+    <div class="clockContainer">
+        <img src="https://th.bing.com/th/id/R.942ffa18b870353b4956f863f452ab93?rik=i%2b6N7lagLsSZHQ&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2fbcy%2f6qL%2fbcy6qLroi.gif&ehk=eND0JOo7WhQ10e2McbHgIBwhh6QT5fKUofDHXTQ%2fpWU%3d&risl=&pid=ImgRaw&r=0" alt="clockImage">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+        <div class="smallCircle"></div>
+    </div>
+</body>
+</html>

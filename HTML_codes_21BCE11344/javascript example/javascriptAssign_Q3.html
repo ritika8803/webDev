@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add and Remove Elements from Array</title>
+  <style>
+    .box {
+        background-color: aliceblue;
+    }
+    div {
+        background-color: bisque;
+    }
+  </style>
+  <script>
+    function removeElement() {
+      var resultDiv = document.getElementById('result');
+      var array1Input = document.getElementById('array1').value;
+      var array3Input = document.getElementById('array3').value;
+      var array1 = array1Input.split(',');
+      var array3 = array3Input.split(',');
+
+      var indexToRemove = [];
+      for (var i = 0; i < array1.length; i++) {
+        if (array3.includes(array1[i])) {
+          indexToRemove.push(i);
+        }
+      }
+      
+      for (var j = indexToRemove.length - 1; j >= 0; j--) {
+        array1.splice(indexToRemove[j], 1);
+      }
+
+      resultDiv.innerHTML = array1.join(',');
+    }
+
+    function addElement() {
+      var resultDiv = document.getElementById('result');
+      var array1Input = document.getElementById('array1').value;
+      var array2Input = document.getElementById('array2').value;
+      var array1 = array1Input.split(',');
+      var array2 = array2Input.split(',');
+
+      var AddArray = array1.concat(array2);
+      resultDiv.innerHTML = AddArray.join(',');
+    }
+  </script>
+</head>
+<body>
+  <div class="box">
+    <h1><center>Add and Remove Elements from Array</center></h1>
+    <table>
+        <tr>
+            <td><label for="array1">Enter elements for Array (comma-separated):</label></td>
+            <td><input type="text" id="array1" /><br></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><label for="array2">Enter element to add (comma-separated):</label></td>
+            <td><input type="text" id="array2" /><br></td>
+            <td><button onclick="addElement()">Add Numbers</button></td>
+        </tr>
+        <tr>
+            <td> <label for="array3">Enter element to remove (comma-separated):</label></td>
+            <td><input type="text" id="array3" /><br></td>
+            <td><button onclick="removeElement()">Remove Element</button></td>
+        </tr>
+    </table>
+        
+    <h2>Result:</h2>
+    <div id="result"></div>
+  </div>
+</body>
+</html>
+
+

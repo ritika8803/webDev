@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BOX MODEL-1 </title>
+    <style>
+
+     button{
+        border-radius: 15px;
+        background-color: red;
+        padding: 13px;
+        color: white;
+        border-color: red;
+        margin: 10px;
+        font-size: large;
+        
+     }
+     button:hover{
+        background-color: #03AC13;
+        border-color: #03AC13;
+     }
+     .outer{
+        background-color: lightblue;
+        width: 550px;
+        height: 350px;
+        padding: 10px;
+        margin-left: 350px;
+        margin-top: 85px;
+     }
+     .inner{
+        background-color: beige;
+        width:490px ;
+        height:290px ;
+        margin-left: 31px;
+        margin-top: 17px;
+        text-align: center;
+        padding-top: 27px;
+        font-size: x-large;
+     }
+     .first{
+        width: 120px;
+     }
+     .second{
+        width:150px ;
+        
+     }
+     .second:hover{
+      opacity: 0;
+     }
+
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+    <div class="inner">
+    <h2 class="heading">Monday</h2>
+    <button>Change Background</button><br>
+    <button class="first">Show</button>
+    <button class="second">Hide Me</button>
+    </div>
+    </div>
+</body>
+</html>

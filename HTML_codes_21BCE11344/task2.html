@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Box Model-2</title>
+    <style>
+       table{
+        background-color: aqua;
+       } 
+       h2{
+        margin-left: 90px;
+       }
+       label{
+        font-weight: bold;
+       }
+       button{
+        padding: 10px;
+        border-radius: 5px;
+        width: 80px;
+        color: white;
+       }
+       .submit{
+        margin-left: 80px;
+        background-color: greenyellow;
+        border-color: greenyellow;
+       }
+       .clear{
+        margin-left: 15px;
+        background-color: blue;
+        border-color: blue;
+       }
+       input{
+        padding: 9px;
+        border-radius: 5px;
+       }
+    </style>
+</head>
+<body>
+    <div>
+    <h2> <u>Project Management</u></h2>
+    <table cellspacing ="5" cellpadding="15">
+        <tbody>
+            <tr>
+                <td><label>Project Name</label></td>
+                <td>  <input type="text" placeholder="project name"> </td>
+               </tr>
+               <tr>
+                  <td><label>Assigned to</label></td>
+                  <td><select> <option>Er Merry Petision</option></select></td>
+               </tr>
+               <tr>
+                <td><label>Start Date</label></td>
+                <td><input type="date"></td>
+             </tr>
+             <tr>
+                <td><label>End Date</label> </td>
+                <td><input type="date"></td>
+             </tr>
+             <tr>
+                <td><label>Priority</label> </td>
+                <td> <input type="radio"><label>High</label>
+                    <input type="radio"><label>Average</label>
+                    <input type="radio"><label>Low</label></td>
+             </tr>
+             <tr>
+                <td> <label>Description</label></td>
+                <td><textarea cols="30" rows="4"></textarea></td>
+             </tr>
+             <tr>
+                <td colspan="2">
+                    <button class="submit">Submit</button>
+                    <button class="clear">Clear</button>
+                </td>
+             </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

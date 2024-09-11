@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Squares and Cubes Table</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Number</th>
+            <th>Square</th>
+            <th>Cube</th>
+        </tr>
+        <script>
+            // Generate the numbers from 6 to 11
+            var numbers = [6, 7, 8, 9, 10, 11];
+
+            // Calculate the squares and cubes of the numbers
+            var squares = numbers.map(function (num) {
+                return num * num;
+            });
+
+            var cubes = numbers.map(function (num) {
+                return num * num * num;
+            });
+
+            // Display the results in the table
+            for (var i = 0; i < numbers.length; i++) {
+                document.write("<tr>");
+                document.write("<td>" + numbers[i] + "</td>");
+                document.write("<td>" + squares[i] + "</td>");
+                document.write("<td>" + cubes[i] + "</td>");
+                document.write("</tr>");
+            }
+        </script>
+    </table>
+</body>
+</html>

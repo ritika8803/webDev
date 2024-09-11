@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Merge Arrays</title>
+  <style>
+    .box{
+        background-color: aquamarine;
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        border: 50px;
+        width: 600px;
+        margin-left: 300px;
+    }
+  </style>
+</head>
+<body>
+   <!-- Q1. -->
+  <div class="box">
+  <h1>Merge Arrays</h1>
+  <label for="array1">Enter elements for Array 1 (comma-separated):</label>
+  <input type="text" id="array1" /><br>
+  <label for="array2">Enter elements for Array 2 (comma-separated):</label>
+  <input type="text" id="array2" /><br>
+  <button onclick="mergeArrays()">Merge</button>
+  <h2>Result:</h2>
+  <div id="result"></div>
+</div>
+
+  <!-- Q2. -->
+  <div class="box">
+  <h1>Find Unique Elements</h1>
+  <form onsubmit="return findUniqueElements(event)">
+    <label for="array12">Enter elements for Array 1 (comma-separated):</label>
+    <input type="text" id="array12" /><br>
+    <label for="array22">Enter elements for Array 2 (comma-separated):</label>
+    <input type="text" id="array22" /><br>
+    <button type="submit">Find Unique Elements</button>
+  </form>
+  <h2>Result:</h2>
+  <div id="result2"></div>
+</div>
+
+  <!-- Q3. -->
+  <div class="box">
+  <h1>Capitalize Words</h1>
+  <form onsubmit="return capitalizeWords(event)">
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" /><br><br>
+    <button type="submit">Capitalize Words</button>
+  </form>
+  <h2>Result:</h2>
+  <div id="result3"></div>
+</div>
+
+  <!-- Q4. -->
+  <div class="box">
+  <h1>Get Weekend Date</h1>
+  <button onclick="displayWeekendDate()">Get Weekend Date</button>
+  <h2>Result:</h2>
+  <div id="result4"></div>
+</div>
+
+  <!-- Q5. -->
+  <div class="box">
+  <h1>Calculate Age</h1>
+  <label for="dob">Enter Date of Birth:</label>
+  <input type="date" id="dob" /><br><br>
+  <button onclick="calculateAndDisplayAge()">Calculate Age</button>
+  <h2>Result:</h2>
+  <div id="result5"></div>
+</div>
+
+  <!-- Q6. -->
+  <div class="box">
+  <h1>Add Numbers</h1>
+  <label for="num1">Number 1:</label>
+  <input type="text" id="num1" /><br>
+  <label for="num2">Number 2:</label>
+  <input type="text" id="num2" /><br><br>
+  <button onclick="addAndDisplayNumbers()">Add Numbers</button>
+  <h2>Result:</h2>
+  <div id="result6"></div>
+</div>
+
+  <script>
+    function mergeArrays() {
+  var array1Input = document.getElementById('array1').value;
+  var array2Input = document.getElementById('array2').value;
+  var array1 = array1Input.split(',');
+  var array2 = array2Input.split(',');
+  var mergedArray = array1.concat(array2);
+  var resultDiv = document.getElementById('result');
+  resultDiv.innerHTML = mergedArray.join(',');
+}
+
+function findUniqueElements(event) {
+  event.preventDefault(); 
+  var array1Input = document.getElementById('array12').value;
+  var array2Input = document.getElementById('array22').value;
+  var array1 = array1Input.split(',');
+  var array2 = array2Input.split(',');
+  var uniqueElements = array1.filter(function(element) {
+    return array2.indexOf(element) === -1; });
+  var resultDiv = document.getElementById('result2');
+  resultDiv.innerHTML = uniqueElements.join(',');
+
+  return false; 
+}
+
+function capitalizeWords(event) {
+  event.preventDefault();
+  var inputString = document.getElementById('inputString').value;
+  var words = inputString.split(' ');
+  var capitalizedWords = words.map(function(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  });
+  var capitalizedString = capitalizedWords.join(' ');
+  var resultDiv = document.getElementById('result3');
+  resultDiv.innerHTML = capitalizedString;
+
+  return false; 
+}
+
+function getWeekendDate() {
+  var today = new Date();
+  var currentDay = today.getDay();
+  var daysUntilSaturday = 6 - currentDay;
+  var nextSaturday = new Date(today);
+  nextSaturday.setDate(today.getDate() + daysUntilSaturday);
+  var nextSunday = new Date(nextSaturday);
+  nextSunday.setDate(nextSaturday.getDate() + 1);
+  return {
+    saturday: nextSaturday,
+    sunday: nextSunday
+  };
+}
+
+function displayWeekendDate() {
+  var weekend = getWeekendDate();
+  var resultDiv = document.getElementById('result4');
+  resultDiv.innerHTML = 'Saturday: ' + weekend.saturday.toDateString() + '<br>' +
+                        'Sunday: ' + weekend.sunday.toDateString();
+}
+
+function calculateAge(dateOfBirth) {
+  var today = new Date();
+  var birthDate = new Date(dateOfBirth);
+  var age = today.getFullYear() - birthDate.getFullYear();
+  var hasBirthdayOccurred = today.getMonth() > birthDate.getMonth() ||
+                            (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+
+  if (!hasBirthdayOccurred) {
+    age--;
+  }
+
+  return age;
+}
+
+function calculateAndDisplayAge() {
+  var dobInput = document.getElementById('dob');
+  var dob = dobInput.value;
+  var age = calculateAge(dob);
+  var resultDiv = document.getElementById('result5');
+  resultDiv.innerHTML = 'Age: ' + age;
+}
+
+function addNumbers(num1, num2) {
+  var maxLength = Math.max(num1.length, num2.length);
+  var result = [];
+  var carry = 0;
+  for (var i = 0; i < maxLength; i++) {
+    var digit1 = i < num1.length ? parseInt(num1[num1.length - 1 - i]) : 0;
+    var digit2 = i < num2.length ? parseInt(num2[num2.length - 1 - i]) : 0;
+    var sum = digit1 + digit2 + carry;
+    var digitSum = sum % 10;
+    carry = Math.floor(sum / 10);
+    result.unshift(digitSum);
+  }
+  if (carry > 0) {
+    result.unshift(carry);
+  }
+  return result.join('');
+}
+
+function addAndDisplayNumbers() {
+  var num1Input = document.getElementById('num1');
+  var num2Input = document.getElementById('num2');
+  var num1 = num1Input.value;
+  var num2 = num2Input.value;
+  var sum = addNumbers(num1, num2);
+  var resultDiv = document.getElementById('result6');
+  resultDiv.innerHTML = 'Sum: ' + sum;
+}
+
+  </script>
+</body>
+</html>
